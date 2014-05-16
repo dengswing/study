@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:appmediation="org.robotlegs.demos.appmediation.*"
+				layout="absolute"
+				minWidth="320"
+				minHeight="200" viewSourceURL="srcview/index.html">
+	
+	<appmediation:DemoContext contextView="{this}" />
+
+	<mx:Label id="appLabel"/>
+
+</mx:Application>

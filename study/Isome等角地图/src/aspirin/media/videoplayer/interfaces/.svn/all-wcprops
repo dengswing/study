@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/repository/player/!svn/ver/1530/trunk/aspirin/DiggPlayer/DiggPlayer/src/aspirin/media/videoplayer/interfaces
+END
+IVideoData.as
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/repository/player/!svn/ver/1530/trunk/aspirin/DiggPlayer/DiggPlayer/src/aspirin/media/videoplayer/interfaces/IVideoData.as
+END
+IPlayerSkin.as
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/repository/player/!svn/ver/1530/trunk/aspirin/DiggPlayer/DiggPlayer/src/aspirin/media/videoplayer/interfaces/IPlayerSkin.as
+END

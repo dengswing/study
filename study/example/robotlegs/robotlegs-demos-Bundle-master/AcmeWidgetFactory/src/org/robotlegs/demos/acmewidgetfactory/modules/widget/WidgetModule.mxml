@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml"
+		   xmlns:view="org.robotlegs.demos.acmewidgetfactory.modules.widget.view.*"
+		   implements="org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule"
+		   layout="vertical"
+		   width="124"
+		   height="84"
+		   preinitialize="onPreInitialize()">
+
+	<mx:Script>
+		<![CDATA[
+			import org.robotlegs.core.IContext;
+			import org.robotlegs.base.ContextEvent;
+			import org.robotlegs.demos.acmewidgetfactory.common.interfaces.IWidgetModule;
+			import org.robotlegs.demos.acmewidgetfactory.modules.widget.controller.WidgetEvent;
+			
+			private var context:WidgetModuleContext;
+			
+			private function onPreInitialize():void
+			{
+				context = new WidgetModuleContext(this);
+			}
+			
+			public function getContext():IContext
+			{
+				return context;
+			}
+			
+			public function poke():void
+			{
+				context.dispatchEvent(new WidgetEvent(WidgetEvent.POKE_WIDGET));
+			}
+			
+			public function setTitle(title:String):void
+			{
+				context.dispatchEvent(new WidgetEvent(WidgetEvent.SET_WIDGET_TITLE, title));
+			}
+			
+			public function close():void
+			{
+				context.dispatchEvent(new ContextEvent(ContextEvent.SHUTDOWN));
+			}
+		]]>
+	</mx:Script>
+
+	<view:WidgetCanvas />
+
+</mx:Module>

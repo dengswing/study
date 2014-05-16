@@ -1,0 +1,13 @@
+/test.fla,107,266823
+/create.swf,16,226195
+/project.xml,117,3215
+/BattleUI.swf,114,38680
+/shop.swf,16,250072
+/BattleUI.fla,114,895507
+/smithy.swf,16,50762
+/UI.swf,108,603938
+/test.swf,100,61760
+/dress.swf,16,8777
+/UI.fla,107,9190117
+/kkData/SkillEffect.kk,114,1111
+/kkData/SkillDict.kk,114,241

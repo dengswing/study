@@ -1,0 +1,28 @@
+<Motion duration="34" xmlns="fl.motion.*" xmlns:geom="flash.geom.*" xmlns:filters="flash.filters.*">
+	<source>
+		<Source frameRate="24" x="0" y="38.25" scaleX="1" scaleY="1" rotation="0" elementType="movie clip" symbolName="mc_qipaokuang2">
+			<dimensions>
+				<geom:Rectangle left="0" top="0" width="37.35" height="38.25"/>
+			</dimensions>
+			<transformationPoint>
+				<geom:Point x="0" y="1"/>
+			</transformationPoint>
+		</Source>
+	</source>
+
+	<Keyframe index="0"/>
+
+	<Keyframe index="14" tweenSnap="true">
+		<tweens>
+			<SimpleEase ease="0"/>
+		</tweens>
+	</Keyframe>
+
+	<Keyframe index="19" tweenSnap="true" rotation="-7.2">
+		<tweens>
+			<SimpleEase ease="0"/>
+		</tweens>
+	</Keyframe>
+
+	<Keyframe index="33" scaleX="0.1" scaleY="0.1" rotation="45"/>
+</Motion>

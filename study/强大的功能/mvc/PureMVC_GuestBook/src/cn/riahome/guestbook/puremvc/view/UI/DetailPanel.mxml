@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" fontSize="12" title="详细内容"
+	paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10">
+	
+	<mx:Script>
+		<![CDATA[
+			
+			import cn.riahome.guestbook.puremvc.model.vo.TopicVO;
+			
+			[Bindable]
+			public var topic:TopicVO;
+			
+		]]>
+	</mx:Script>
+	
+	<mx:FormItem label="  ID" width="100%">
+		<mx:TextInput editable="false" width="100%" text="{topic.id}"/>
+	</mx:FormItem>
+	
+	<mx:FormItem label="时间" width="100%">
+		<mx:TextInput editable="false" width="100%" text="{topic.addTime}"/>
+	</mx:FormItem>
+	
+	<mx:FormItem label="昵称" width="100%">
+		<mx:TextInput editable="false" width="100%"  text="{topic.username}"/>
+	</mx:FormItem>
+	
+	<mx:FormItem label="内容" width="100%" height="100%">
+		<mx:TextArea editable="false" width="100%" height="100%" text="{topic.content}"/>
+	</mx:FormItem>
+	
+</mx:Panel>

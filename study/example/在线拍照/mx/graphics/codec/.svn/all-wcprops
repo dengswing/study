@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/318/trunk/lib/F3.1/frameworks/projects/framework/src/mx/graphics/codec
+END
+PNGEncoder.as
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/318/trunk/lib/F3.1/frameworks/projects/framework/src/mx/graphics/codec/PNGEncoder.as
+END
+JPEGEncoder.as
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/318/trunk/lib/F3.1/frameworks/projects/framework/src/mx/graphics/codec/JPEGEncoder.as
+END
+IImageEncoder.as
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/318/trunk/lib/F3.1/frameworks/projects/framework/src/mx/graphics/codec/IImageEncoder.as
+END

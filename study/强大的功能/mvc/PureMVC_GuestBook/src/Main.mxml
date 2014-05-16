@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+	
+	初探PureMVC, 学习理论? 实践最重要. 如果发现一些不恰当的地? 请到以下地方指出?
+	
+	My Blog : www.riahome.cn
+	My Email: y_boy@126.com & riahome.cn@gmail.com
+	
+	谢谢!
+	
+	注意: 本例子使用了 PHP + MySQL, 为了测试成功, 请在虚拟环境下测? 测试? 请先创建数据? 需要创建的数据库在 "sql" 文件夹里?
+	      欢迎交流!
+	
+ -->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	xmlns:UI="cn.riahome.guestbook.puremvc.view.UI.*"
+	creationComplete="facade.startup( this )" fontSize="12">
+	
+	<!--
+		
+		目前分析途径: Main.mxml
+		完整分析途径: Main.mxml -> ApplicationFacade.as -> StartupCommand.as -> ListTopicProxy.as -> ListPanelMediator.as
+		
+		整个pureMVC框架就是从上面那?startup() 函数开始了, 正如其名, 它启动了整个框架.
+		请按着 Ctrl 键点击这个函? 进入去看代码.
+	 -->
+	
+	<mx:Style>
+		.errorTip{
+			fontSize:12;
+		}
+	</mx:Style>
+	
+	<mx:Script>
+		<![CDATA[
+			
+			import cn.riahome.guestbook.puremvc.ApplicationFacade;
+						
+			private var facade:ApplicationFacade = ApplicationFacade.getInstance();
+			
+		]]>
+	</mx:Script>
+	
+	<UI:ListPanel id="listPanel" x="71" y="10" width="555" height="498"/>
+	
+	<UI:InsertPanel id="insertPanel" x="634" y="318" width="400" height="190"/>
+	
+	<UI:DetailPanel id="detailPanel" x="634" y="10" width="400" height="300"/>
+	
+</mx:Application>

@@ -1,0 +1,52 @@
+10
+
+dir
+1544
+http://svn.tudou.com/svn/repository/player/trunk/aspirin/DiggPlayer/DiggPlayer/src/aspirin
+http://svn.tudou.com/svn/repository/player
+
+
+
+2009-08-31T09:18:03.120824Z
+1530
+aspirin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c5cd1a70-8f1a-0410-b0b9-d0164749a296
+
+media
+dir
+
+frameworks
+dir
+
+utils
+dir
+
+videoplayer
+dir
+
+events
+dir
+
+net
+dir
+
+managers
+dir
+
+ui
+dir
+

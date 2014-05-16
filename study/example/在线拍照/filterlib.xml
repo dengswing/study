@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<filterlib>
+	<filter name="none" src="filterlib/DTW.pbj" param="contrast" value="1" />
+	<filter name="invertRGB" src="filterlib/invertRGB.pbj" />
+	<filter name="pixelate" src="filterlib/pixelate.pbj" param="dimension" value="10" />
+	<filter name="DTW" src="filterlib/DTW.pbj" param="contrast" value="3" />
+	<filter name="sepia" src="filterlib/sepia.pbj" param="intensity" value="0.5" />
+	<filter name="RadialCaleidoscope" src="filterlib/RadialCaleidoscope.pbj" param="angle" value="0.5" />
+	<filter name="sharpen" src="filterlib/sharpen.pbj" param="amount" value="20" />
+	<filter name="zoomBlur" src="filterlib/zoomBlur.pbj" param="amount" value="0.1" />
+</filterlib>

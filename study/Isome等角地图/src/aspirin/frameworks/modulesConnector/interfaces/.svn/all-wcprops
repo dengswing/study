@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/repository/player/!svn/ver/1530/trunk/aspirin/DiggPlayer/DiggPlayer/src/aspirin/frameworks/modulesConnector/interfaces
+END
+IModule.as
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/repository/player/!svn/ver/1530/trunk/aspirin/DiggPlayer/DiggPlayer/src/aspirin/frameworks/modulesConnector/interfaces/IModule.as
+END
+IModulesMediator.as
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/repository/player/!svn/ver/1530/trunk/aspirin/DiggPlayer/DiggPlayer/src/aspirin/frameworks/modulesConnector/interfaces/IModulesMediator.as
+END
+ICommand.as
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/repository/player/!svn/ver/1530/trunk/aspirin/DiggPlayer/DiggPlayer/src/aspirin/frameworks/modulesConnector/interfaces/ICommand.as
+END

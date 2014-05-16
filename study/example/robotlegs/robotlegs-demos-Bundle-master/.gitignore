@@ -1,0 +1,16 @@
+*/.settings/*
+*/bin-debug/*
+*/bin-release/*
+*/html-template/*
+GoogleMaps/web/srcview
+Thumbs.db
+.DS_Store
+*/.svn/*
+.metadata/*
+*/web/*
+.actionScriptProperties
+.flexProperties
+.flexLibProperties
+.FlexUnitSettings
+.as3_classpath
+.project

@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>FlashInterface - Call and Receive Method</title>
+<script type="text/javascript" src="swfobject.js"></script>
+</head>
+<!-- <body bgcolor="#DEDEDE"> -->
+<body bgcolor="#FFFFFF">	
+	
+	<table width="820" align="center" cellpadding="5" class="border">	
+	  <tr>
+		<td>
+			<div id="div_flash_call_method" style="margin-right:10px">FlashInterface caller </div>
+
+			<!-- Flash 8 Method Call -->
+			<script type="text/javascript">
+				// <![CDATA[
+				
+				var so = new SWFObject("flash8_call_method.swf", "bb", "400", "200", "8", "#FFFFFF");
+				//so.addVariable("sendToSwfId", "aa"); 
+				so.write("div_flash_call_method");
+				
+				// ]]>
+			</script>	
+		</td>
+		<td>		
+			<div id="div_flash_receive_method">FlashInterface receiver </div>
+			
+			<!-- Flash 9 Method Receive -->
+			<script type="text/javascript">
+				// <![CDATA[
+					
+				var so = new SWFObject("flash9_receive_method.swf", "aa", "400", "200", "8", "#FFFFFF");
+				so.addVariable("sendToSwfId", "bb");
+				so.write("div_flash_receive_method");
+				
+				// ]]>
+			</script>		
+		</td>	
+
+		<td>		
+			<div id="div_flash_receive_method2">FlashInterface receiver </div>
+			
+			<!-- Flash 9 Method Receive -->
+			<script type="text/javascript">
+				// <![CDATA[
+					
+				var so = new SWFObject("flash9_receive_method2.swf", "cc", "400", "200", "8", "#FFFFFF");
+				so.addVariable("sendToSwfId", "aa");
+				so.write("div_flash_receive_method2");
+				
+				// ]]>
+			</script>		
+		</td>	
+		
+	  </tr>	 
+</table>
+	
+</body>
+</html>

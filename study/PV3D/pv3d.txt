@@ -1,0 +1,77 @@
+一、org.papervision3d
+1、Papervision3D 
+说明：该类包含全局属性及设置。
+
+属性：
+ A、AUTHOR 版权信息(static)
+ B、DATE 版本创始时间(static)
+ C、NAME 引擎名称(static)
+ D、useDEGREES 作者是否是博士学位(static) 
+ E、usePERCENT 作者是否有单位(static)
+ F、useRIGHTHANDED (static) 
+ G、VERBOSE 是否显示调试信息(static)
+ H、VERSION 版本(static)
+
+方法：
+ A、log 日志
+
+
+二、org.papervision3d.cameras
+1、Camera3D
+   A、继承：Camera3D-->CameraObject3D-->DisplayObject3D-->DisplayObjectContainer3D-->flash.events.EventDispatcher
+   B、子类：DebugCamera3D
+说明：基于摄影机使用。
+
+属性：
+ A、DEFAULT_FAR 默认距离(static)
+ B、far 设置距离(get/set)
+ C、frustumCulling 是否使用摄影机裁剪。(get/set)
+ D、near 附近的平面距离。(get/set)
+
+方法：
+ A、
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

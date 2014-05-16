@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml"
+		   horizontalScrollPolicy="off"
+		   backgroundColor="#000000"
+		   width="100%"
+		   height="100%">
+
+	<mx:Script>
+		<![CDATA[
+			public function logMessage(message:String):void
+			{
+				textArea.htmlText += '[' + new Date().toTimeString().substr(0, 8) + '] ' + message + '\n';
+				validateNow();
+				verticalScrollPosition = maxVerticalScrollPosition;
+			}
+			
+			public function clearMessages():void
+			{
+				textArea.htmlText = '';
+			}
+		]]>
+	</mx:Script>
+
+	<mx:Text id="textArea"
+			 fontSize="10"
+			 fontFamily="Courier New"
+			 color="#00FF06"
+			 width="100%"/>
+
+</mx:Canvas>

@@ -1,0 +1,56 @@
+﻿<project>
+	<name>啵啵碰</name>
+	<company>北京易欢腾</company>
+	<version>1.0</version>
+	<date>2009-11-11</date>
+	<language>zh-CN</language>
+	<system>
+		<!--<asset name="道具字典" url="itemDict.xml?version=1.0" type="txt" />
+		<asset name="礼品字典" url="giftDict.xml?version=1.0" type="txt" />
+		<asset name="积分字典" url="rank.txt?version=1.2" type="txt" />
+		<asset name="任务字典" url="taskDict.txt?version=1.1" type="txt" />-->
+		<asset name="UI资源" url="UI.swf" type="swf" encoded="false" />
+		<asset name="装扮资源" url="dress.swf?version=1.0" type="swf" encoded="false" />
+		<!-- <asset name="商城" url="shop.swf?version=1.0" type="swf" encoded="false" />-->
+		<asset name="创建房间" url="create.swf?version=1.0" type="swf" encoded="false" />
+		<asset name="铁匠铺" url="smithy.swf?version=1.0" type="swf" encoded="false" />
+		<asset name="战斗UI资源" url="BattleUI.swf" type="swf" encoded="false" />
+		<asset name="测试资源" url="test.swf" type="swf" encoded="false" /> 
+		<asset name="技能过程字典" url="kkData/SkillEffect.kk" type="bin" encoded="false" /> 
+		<asset name="技能字典" url="kkData/SkillDict.kk" type="bin" encoded="false" />
+		
+		<!--字典文件-->
+		<!-- <asset name="商城字典" url="kkData/shop.kk" type="bin" encoded="false" /> --> 
+		
+		<!--<zh-CN>
+			<language name="语言包" url="system.zh-CN.mo" type="bin"/>
+			<asset name="其它资源" url="system.other.swf" type="swf"/>
+		</zh-CN>
+		-->
+	</system>
+	
+	<stages>		
+		<stage name="map" classPath="stages.BigMapStage" assetName="BigMapStage" isInherent="true"/>
+		<stage name="lobby" classPath="stages.LobbyStage" assetName="LobbyStage" isInherent="true"  />		
+		<stage name="battle" classPath="stages.BattleStage" assetName="BattleStage" isInherent="true" isDefault="true"/>	
+		<stage name="friendsCenter" classPath="stages.FriendsCenterStage" assetName="FriendsCenterStage_mc" isInherent="true" />	
+		<stage name="shop" classPath="stages.ShopStage" assetName="ShopStage" isInherent="true"/>	
+		<stage name="readyRoom" classPath="stages.ReadyRoomStage" assetName="ReadyRoomStage" isInherent="true"/>	
+		<stage name="playerLoading" classPath="stages.PlayerLoadingStage" assetName="PlayerLoadingStage" isInherent="true"/>			
+
+		
+		<stage name="shaizi" classPath="ShaiziStage"  assetName="主页面场景" isInherent="false">
+		<!--	<asset name="音效资源" url="sound.swf?version=1.1" type="swf"  encoded="false" forCacheLoad="false" />
+			<asset name="聊天表情资源" url="smilies.swf?version=1.0" type="swf"/>
+			<asset name="道具动画资源" url="itemanim.swf?version=1.0" type="swf"/>
+			<asset name="礼品资源" url="gift.swf?version=1.0" type="swf" />-->
+			<asset name="房间通用资源" url="room.swf?version=2.9" type="swf"/>
+			<!--<asset name="房间通用资源附加" url="roomShare.swf" type="swf" encoded="false" />-->
+			<!--<asset name="宠物资源" url="pets.swf" type="swf"/>-->
+			<zh-CN>
+				<!--<language name="语言包" url="shaizi.zh-CN.mo" type="bin"/>-->
+				<!--<asset name="其它资源" url="shaizi.other.swf" type="swf"/>-->
+			</zh-CN>
+		</stage>
+	</stages>
+</project>

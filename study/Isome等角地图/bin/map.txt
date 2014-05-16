@@ -1,0 +1,30 @@
+// this is a comment.
+
+# 0 type:DrawnIsoTile color:0x6666ff walkable:true isFloor:true
+# 1 type:GraphicCube graphic:BlueCube_1 walkable:false col:1 row:3 offX:-20 offY:-40 isFloor:false
+# 2 type:GraphicCube graphic:BlueCube_2 walkable:false col:3 row:1 offX:-20 offY:-40 isFloor:false
+# 3 type:GraphicCube graphic:BlueCube_3 walkable:false col:1 row:1 offX:-20 offY:-40 isFloor:false
+# 4 type:GraphicCube graphic:Flower_1 walkable:false col:1 row:1 offX:-20 offY:-40 isFloor:false
+# 5 type:GraphicCube graphic:Flower_2 walkable:true col:1 row:1 offX:-20 offY:-40 isFloor:false
+
+
+3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 4 0 4 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 2 0 0 0 0 0 0 0 0 5 0 0 0 0
+1 0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 4 4 0 0 0 0 0 0 0 5 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 4 0 0 0
+1 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 4 4 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
