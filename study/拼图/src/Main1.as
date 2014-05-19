@@ -1,15 +1,17 @@
 package 
 {
 	import flash.display.Bitmap;
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import com.ycccc.PuzzleGame.Puzzle;
 
 	/**
 	 * ...
 	 * @author dengsw
 	 */
 	[Frame(factoryClass="Preloader")]
-	public class Main extends Sprite 
+	public class Main1 extends Sprite 
 	{
 
 		[Embed(source = "../bin/vivian.jpg")]
@@ -17,7 +19,7 @@ package
 		private var bmd:Bitmap;
 		
 		
-		public function Main():void 
+		public function Main1():void 
 		{
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
@@ -27,12 +29,17 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
-			bmd = new puzzleImag();
-			//var upuzzle:puzzle = new puzzle();
-			var upuzzle:puzzle2 = new puzzle2();
-			addChild(upuzzle);
 			
-			upuzzle.startPuzzle(bmd, finishFun, 500, 500, 3, 3);
+			var s:MovieClip = new MovieClip();
+			addChild(s)
+			
+			bmd = new puzzleImag();
+			s.addChild(bmd);
+			
+			var puzzle:Puzzle = new Puzzle();
+			puzzle.setPosition(1, 2);
+			puzzle.mcToBitmap(s,s.width,s.height)
+			
 		}
 		
 		private function finishFun():void 
