@@ -34,7 +34,7 @@ package
 			var upuzzle:puzzle4 = new puzzle4();
 			addChild(upuzzle);
 			
-			upuzzle.startPuzzle(bmd, finishFun, 500, 500,1, 2);
+			upuzzle.startPuzzle(bmd, finishFun, 500, 500,4, 4);
 		}
 		
 		private function finishFun():void 

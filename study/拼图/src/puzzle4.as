@@ -28,7 +28,7 @@
 		///////////////比例系数///////////////
 		private var _pieceD_k:Number = 10;
 		private var _pieceO_k:Number = 4;
-		private var _pieceOWH_k:Number = 3 / 4;
+		private var _pieceOWH_k:Number = 4 / 4;
 		
 		public function puzzle4()			{}
 		
@@ -74,15 +74,11 @@
 			var j				:int		=	0;
 			var k				:int		=	0;
 			//定义每个碎片的宽高
-			this.chipWidth					=	int(sourceImage.width / rowNum);
-			this.chipHeight					=	int(sourceImage.height / colNum);
+			this.chipWidth					=	int(sourceImage.width / colNum);
+			this.chipHeight					=	int(sourceImage.height / rowNum);
 			
-			//trace("chipWidth", chipWidth, "chipHeight", chipHeight);
-			//_pieceW = int(sourceImage.width / colNum);
-			//_pieceH = int(sourceImage.height / rowNum);
-			_pieceW = chipWidth;
-			_pieceH = chipHeight;
-			
+			_pieceW = int(sourceImage.width / colNum);
+			_pieceH = int(sourceImage.height / rowNum);
 			_pieceMinWH = Math.min(_pieceW, _pieceH);
 			_pieceD = _pieceMinWH/_pieceD_k;
 			_pieceOW = _pieceMinWH/_pieceO_k;
@@ -105,20 +101,17 @@
 					
 					chip.graphics.beginBitmapFill
 					(this.sourceImage.bitmapData.clone(),
-					new Matrix(1, 0, 0, 1, -i * chipWidth, -j * chipHeight) , false, true);
+					new Matrix(1, 0, 0, 1, -j * _pieceW, -i * _pieceH) , false, true);
 					
 					chip.graphics.lineStyle(0, 0, 0);
 					chip.graphics.moveTo(0, 0);
 					
-					trace("start",pArray.length);
 					for (k = 0; k < pArray.length; k++)
 					{
 						if (pArray[k] is Point) {
 							chip.graphics.lineTo(pArray[k].x, pArray[k].y);
-							trace("11k"+"-->"+pArray[k].x+"-->"+pArray[k].y);
 						} else {
 							chip.graphics.curveTo(pArray[k][0].x, pArray[k][0].y, pArray[k][1].x, pArray[k][1].y);
-							trace("00k"+"-->"+pArray[k][0].x+"-->"+ pArray[k][0].y+"-->"+ pArray[k][1].x+"-->"+ pArray[k][1].y);
 						}
 					}
 					
@@ -214,7 +207,6 @@
 			var tempArray		:Array		=	[];
 			var tmp				:Array		=	new Array(4);
 			
-			trace("chip.ID",chip.ID,rowNum,colNum);
 			if(chip.ID.x == 0)
 			{ //a
 				chip.ALeft					=	[];
@@ -280,15 +272,6 @@
 			
 			result							=	result.concat(chip.ATop);			
 				
-			
-			trace("ALeft",chip.ALeft);
-			trace(new Point(_pieceW, 0))
-			trace("AFeet",chip.AFeet);
-			trace(new Point(_pieceW, _pieceH))
-			trace("ARight",chip.ARight);
-			trace(new Point(0, _pieceH));
-			trace("ATop",chip.ATop);
-			
 			return result;
 		}
 		
@@ -376,16 +359,16 @@
 						{
 							/** 纵向编号差1，横坐标差距小于设定差距 **/
 							if( (this.getNonnegative(checkChip.ID.y - chip.ID.y) == 1) && 
-								(this.getNonnegative(checkChip.x - chip.x) < this.checkGap) )
+								(this.getNonnegative(checkChip.y - chip.y) < this.checkGap) )
 							{
 								//trace("id...x -->site:", checkChip.toString(), chip.toString(), " position:", checkChip.ID, chip.ID, checkChip.x - chip.x);
-								if ((checkChip.ID.y > chip.ID.y && checkChip.y > chip.y && 								
-									 checkChip.y - chip.y < this.checkGap + this.chipHeight && 
-									 checkChip.y - chip.y >= this.chipHeight - this.checkGap)
+								if ((checkChip.ID.y > chip.ID.y && checkChip.x > chip.x && 								
+									 checkChip.x - chip.x < this.checkGap + this.chipWidth && 
+									 checkChip.x - chip.x >= this.chipWidth - this.checkGap)
 									||
-									(checkChip.ID.y < chip.ID.y && checkChip.y < chip.y && 
-									 chip.y - checkChip.y < this.checkGap + this.chipHeight && 
-									 chip.y - checkChip.y >= this.chipHeight - this.checkGap))						 
+									(checkChip.ID.y < chip.ID.y && checkChip.x < chip.x && 
+									 chip.x - checkChip.x < this.checkGap + this.chipWidth && 
+									 chip.x - checkChip.x >= this.chipWidth - this.checkGap))						 
 								{
 									//trace("x ok..");
 									this.updateGroup(this.currentChip.Group.slice(), chip.Group.slice());
@@ -397,16 +380,16 @@
 						{
 							/** 横向编号差1，横坐标差距小于设定差距 **/
 							if( (this.getNonnegative(checkChip.ID.x - chip.ID.x) == 1) && 
-								(this.getNonnegative(checkChip.y - chip.y) < this.checkGap) )
+								(this.getNonnegative(checkChip.x - chip.x) < this.checkGap) )
 							{
 								//trace("id...y -->site:", checkChip.toString(), chip.toString(), " position:", checkChip.ID, chip.ID, checkChip.x - chip.x);
-								if ((checkChip.ID.x > chip.ID.x && checkChip.x > chip.x &&
-									 checkChip.x - chip.x < this.checkGap + this.chipWidth &&
-									 checkChip.x - chip.x >= this.chipWidth - this.checkGap)
+								if ((checkChip.ID.x > chip.ID.x && checkChip.y > chip.y &&
+									 checkChip.y - chip.y < this.checkGap + this.chipHeight &&
+									 checkChip.y - chip.y >= this.chipHeight - this.checkGap)
 									||
-									(checkChip.ID.x < chip.ID.x && checkChip.x < chip.x  && 
-									 chip.x - checkChip.x < this.checkGap + this.chipWidth &&									
-									 chip.x - checkChip.x >= this.chipWidth - this.checkGap))
+									(checkChip.ID.x < chip.ID.x && checkChip.y < chip.y  && 
+									 chip.y - checkChip.y < this.checkGap + this.chipHeight &&									
+									 chip.y - checkChip.y >= this.chipHeight - this.checkGap))
 								{
 									//trace("y ok..");
 									this.updateGroup(this.currentChip.Group.slice(), chip.Group.slice());
@@ -435,7 +418,9 @@
 			
 			var dx				:Number		=	int(newGroup[0].x);
 			var dy				:Number		=	int(newGroup[0].y);
+			
 			newGroup[0].moveTo(dx, dy);
+			
 			var idx				:int		=	newGroup[0].ID.x;
 			var idy				:int		=	newGroup[0].ID.y;
 			var chip			:Item_Chip;
@@ -443,8 +428,8 @@
 			{
 				chip						=	newGroup[i];
 				chip.Group					=	newGroup;
-				chip.x						=	dx + this.chipWidth * (chip.ID.x - idx);
-				chip.y						=	dy + this.chipHeight * (chip.ID.y - idy);
+				chip.y						=	dx + this.chipHeight * (chip.ID.x - idx);
+				chip.x						=	dy + this.chipWidth * (chip.ID.y - idy);
 				this.setChildIndex(chip, this.numChildren - 1);
 			}
 			
