@@ -13,7 +13,10 @@
 		private var rowNum					:int			=	8;
 		private var colNum					:int			=	8;
 		private var checkGap				:int			=	15;
-		private var sourceImage				:Bitmap			=	null;
+		private var sourceImage				:Bitmap			=	null;;
+		
+		private var currentChip				:Item_Chip		=	null;
+		private var finishFun				:Function		=	null;
 		
 		private var _pieceW:Number;
 		private var _pieceH:Number;
@@ -25,11 +28,7 @@
 		///////////////比例系数///////////////
 		private var _pieceD_k:Number = 10;
 		private var _pieceO_k:Number = 4;
-		private var _pieceOWH_k:Number = 3/4;
-		
-		
-		private var currentChip				:Item_Chip		=	null;
-		private var finishFun				:Function		=	null;
+		private var _pieceOWH_k:Number = 3 / 4;
 		
 		public function puzzle4()			{}
 		
@@ -75,18 +74,20 @@
 			var j				:int		=	0;
 			var k				:int		=	0;
 			//定义每个碎片的宽高
-			this.chipWidth					=	int(sourceImage.height / rowNum);
-			this.chipHeight					=	int(sourceImage.width / colNum);
+			this.chipWidth					=	int(sourceImage.width / rowNum);
+			this.chipHeight					=	int(sourceImage.height / colNum);
 			
-			_pieceW = chipHeight;
-			_pieceH = chipWidth;
+			//trace("chipWidth", chipWidth, "chipHeight", chipHeight);
+			//_pieceW = int(sourceImage.width / colNum);
+			//_pieceH = int(sourceImage.height / rowNum);
+			_pieceW = chipWidth;
+			_pieceH = chipHeight;
+			
 			_pieceMinWH = Math.min(_pieceW, _pieceH);
 			_pieceD = _pieceMinWH/_pieceD_k;
 			_pieceOW = _pieceMinWH/_pieceO_k;
-			_pieceOH = _pieceOW/_pieceOWH_k;
-	
-	
-			//trace("chipWidth", chipWidth, "chipHeight", chipHeight);
+			_pieceOH = _pieceOW / _pieceOWH_k;
+			
 			
 			var chip:Item_Chip;
 			var pArray:Array;
@@ -104,7 +105,7 @@
 					
 					chip.graphics.beginBitmapFill
 					(this.sourceImage.bitmapData.clone(),
-					new Matrix(1, 0, 0, 1, -j * this._pieceW, -i * this._pieceH) , false, true);					
+					new Matrix(1, 0, 0, 1, -i * chipWidth, -j * chipHeight) , false, true);
 					
 					chip.graphics.lineStyle(0, 0, 0);
 					chip.graphics.moveTo(0, 0);
@@ -121,7 +122,6 @@
 						}
 					}
 					
-					//chip.moveTo(i * this.chipWidth, j * this.chipHeight);
 					chip.addEventListener(MouseEvent.MOUSE_DOWN,dragChip);
 					this.addChild(chip);
 				}
@@ -134,15 +134,15 @@
 		{
 			if(!this.numChildren)				return;
 			var index			:int		=	0;
-			var rowCount		:int		=	int(this.scrollRect.height / this._pieceW);
+			var rowCount		:int		=	int(this.scrollRect.height / this.chipHeight);
 			var chip			:Item_Chip;
 			for(var i:int = 0; i < this.numChildren; i ++)
 			{
 				chip						=	this.getChildAt(i) as Item_Chip;
 				if(chip.Group && chip.Group.length == 1)
 				{
-					chip.x					=	int(index / rowCount) * this._pieceH + 10;
-					chip.y					=	(index % rowCount) * this._pieceW + 10;
+					chip.x					=	int(index / rowCount) * this.chipWidth + 10;
+					chip.y					=	(index % rowCount) * this.chipHeight + 10;
 					index					++;
 				}
 			}
@@ -168,36 +168,40 @@
 		
 		private final function getRndSize():int
 		{
-			var val				:Number		=	(this._pieceH > this._pieceW) ? this._pieceW : this._pieceH;
+			var val				:Number		=	(this.chipWidth > this.chipHeight) ? this.chipHeight : this.chipWidth;
 			return int(val * 0.25 + Math.random() * val * 0.2);
-			//return int(val * 0.5);
+			//return int(val * 0.25);
 		}
+		
 		
 		private function getRndD():Number 
 		{
 			//返回与边界错开的高度
-			return _pieceD - Math.random() * 2 * _pieceD;
+			//return _pieceD - Math.random() * 2 * _pieceD;
+			return 0;
 		}
 	
 		private function getOvalDotArray(position:String):Array
 		{
+			var a0:Point, a1:Array, a2:Array, a3:Array;
+			
 			//var rnd:Number = Math.random()*2 ? 1 : -1;
 			var rnd:Number = 1;
 			var circleDotArr:Array = [];
 			switch (position)
 			{
 				case "right" :
-					var a0:Point = new Point(_pieceW+getRndD(), (_pieceH-_pieceOW)/2+_pieceOW/4-Math.random()*_pieceOW/2);
-					var a1:Array = [new Point(a0.x+rnd*(_pieceOH/2), a0.y-_pieceOW/2), new Point(a0.x+rnd*_pieceOH, a0.y)];
-					var a2:Array = [new Point(a0.x+rnd*(_pieceOH+_pieceOW/3), a0.y+_pieceOW/2), new Point(a0.x+rnd*_pieceOH, a0.y+_pieceOW)];
-					var a3:Array = [new Point(a0.x+rnd*_pieceOH/2, a0.y+_pieceOW+_pieceOW/2), new Point(a0.x, a0.y+_pieceOW)];
+					a0 = new Point(_pieceW + getRndD(), (_pieceH - _pieceOW) / 2);
+					a1 = [new Point(a0.x+rnd*(_pieceOH/2), a0.y-_pieceOW/2), new Point(a0.x+rnd*_pieceOH, a0.y)];
+					a2 = [new Point(a0.x+rnd*(_pieceOH+_pieceOW/3), a0.y+_pieceOW/2), new Point(a0.x+rnd*_pieceOH, a0.y+_pieceOW)];
+					a3 = [new Point(a0.x+rnd*_pieceOH/2, a0.y+_pieceOW+_pieceOW/2), new Point(a0.x, a0.y+_pieceOW)];
 					circleDotArr = [a0, a1, a2, a3];
 					break;
 				case "down" :
-					var a0:Point = new Point(_pieceW-((_pieceW-_pieceOW)/2+_pieceOW/4-Math.random()*_pieceOW/2), _pieceH+getRndD());
-					var a1:Array = [new Point(a0.x+_pieceOW/2, a0.y+rnd*(_pieceOH/2)), new Point(a0.x, a0.y+rnd*_pieceOH)];
-					var a2:Array = [new Point(a0.x-_pieceOW/2, a0.y+rnd*(_pieceOH+_pieceOW/3)), new Point(a0.x-_pieceOW, a0.y+rnd*_pieceOH)];
-					var a3:Array = [new Point(a0.x-_pieceOW-_pieceOW/2, a0.y+rnd*_pieceOH/2), new Point(a0.x-_pieceOW, a0.y)];
+					a0 = new Point(_pieceW-(_pieceW-_pieceOW)/2, _pieceH+getRndD());
+					a1 = [new Point(a0.x+_pieceOW/2, a0.y+rnd*(_pieceOH/2)), new Point(a0.x, a0.y+rnd*_pieceOH)];
+					a2 = [new Point(a0.x-_pieceOW/2, a0.y+rnd*(_pieceOH+_pieceOW/3)), new Point(a0.x-_pieceOW, a0.y+rnd*_pieceOH)];
+					a3 = [new Point(a0.x-_pieceOW-_pieceOW/2, a0.y+rnd*_pieceOH/2), new Point(a0.x-_pieceOW, a0.y)];
 					circleDotArr = [a0, a1, a2, a3];
 					break;
 			}
@@ -275,14 +279,24 @@
 			result.push(new Point(0, _pieceH));
 			
 			result							=	result.concat(chip.ATop);			
+				
+			
+			trace("ALeft",chip.ALeft);
+			trace(new Point(_pieceW, 0))
+			trace("AFeet",chip.AFeet);
+			trace(new Point(_pieceW, _pieceH))
+			trace("ARight",chip.ARight);
+			trace(new Point(0, _pieceH));
+			trace("ATop",chip.ATop);
 			
 			return result;
 		}
 		
+		
 		private final function randomPosition(target:Object):void
 		{
-			target.x						=	Math.random() * (this.scrollRect.width - this._pieceH);
-			target.y						=	Math.random() * (this.scrollRect.height - this._pieceW);
+			target.x						=	Math.random() * (this.scrollRect.width - this.chipWidth);
+			target.y						=	Math.random() * (this.scrollRect.height - this.chipHeight);
 		}
 		
 		private final function dragChip(e:MouseEvent):void

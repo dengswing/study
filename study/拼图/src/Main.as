@@ -30,10 +30,11 @@ package
 			bmd = new puzzleImag();
 			//var upuzzle:puzzle = new puzzle();
 			//var upuzzle:puzzle2 = new puzzle2();
-			var upuzzle:puzzle3 = new puzzle3();
+			//var upuzzle:puzzle3 = new puzzle3();
+			var upuzzle:puzzle4 = new puzzle4();
 			addChild(upuzzle);
 			
-			upuzzle.startPuzzle(bmd, finishFun, 500, 500, 2, 2);
+			upuzzle.startPuzzle(bmd, finishFun, 500, 500,1, 2);
 		}
 		
 		private function finishFun():void 
